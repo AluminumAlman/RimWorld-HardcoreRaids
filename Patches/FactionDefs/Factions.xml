@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/FactionDef/maxPawnCostPerTotalPointsCurve</xpath>
+		<value>
+			<maxPawnCostPerTotalPointsCurve>
+				<points>
+					<li>(0,40)</li>
+					<li>(80, 80)</li>
+					<li>(100000, 100000)</li>
+				</points>
+			</maxPawnCostPerTotalPointsCurve>
+		</value>
+	</Operation>
+</Patch>
