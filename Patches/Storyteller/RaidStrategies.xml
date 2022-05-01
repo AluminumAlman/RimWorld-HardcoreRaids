@@ -275,6 +275,11 @@
 	</Operation>
 
 	<!-- Sieges -->
+	<Operation Class="PatchOperationAttributeSet">
+		<xpath>Defs/RaidStrategyDef[defName="Siege"]</xpath>
+		<attribute>Name</attribute>
+		<value>SiegeBase</value>
+	</Operation>
 	<Operation Class="PatchOperationReplace">
 		<xpath>Defs/RaidStrategyDef[defName="Siege"]/selectionWeightPerPointsCurve/points</xpath>
 		<value>
@@ -282,7 +287,6 @@
 				<li>(1000,0)</li>
 				<li>(2000,1)</li>
 				<li>(3500,2)</li>
-				<li>(5000,3)</li>
 			</points>
 		</value>
 	</Operation>
@@ -304,6 +308,26 @@
 		<xpath>Defs/RaidStrategyDef[defName="Siege"]/arrivalTextEnemy</xpath>
 		<value>
 			<arrivalTextEnemy>They are attacking immediately. Their tactics are unknown.</arrivalTextEnemy>
+		</value>
+	</Operation>
+
+	<!-- Siege appearing in groups. Builds a lot of mortars -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs</xpath>
+		<value>
+			<RaidStrategyDef ParentName="SiegeBase">
+				<defName>SiegeGroups</defName>
+				<selectionWeightPerPointsCurve Inherit="False">
+					<points>
+						<li>(3500,0)</li>
+						<li>(5000,1)</li>
+					</points>
+				</selectionWeightPerPointsCurve>
+				<arriveModes Inherit="False">
+					<li>EdgeWalkInGroups</li>
+					<li>EdgeDropGroups</li>
+				</arriveModes>
+			</RaidStrategyDef>
 		</value>
 	</Operation>
 
